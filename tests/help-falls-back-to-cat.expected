@@ -1,0 +1,41 @@
+adr_bin=$(dirname "$(command -v adr)")
+dirname "$(command -v adr)"
+command -v adr
+tmpbin=$(pwd)/bin-without-more
+pwd
+mkdir "$tmpbin"
+for cmd in bash sh awk sed grep find sort head cut tr date mkdir mv cat basename dirname pwd getopt
+do
+    ln -s "$(command -v "$cmd")" "$tmpbin/$cmd"
+done
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+command -v "$cmd"
+
+PATH="$tmpbin:$adr_bin" ADR_PAGER= PAGER= adr help
+usage: adr help COMMAND [ARG] ...
+COMMAND is one of: 
+  help
+  new
+  link
+  list
+  init
+  config
+  generate
+  upgrade-repository
+Run 'adr help COMMAND' for help on a specific command.

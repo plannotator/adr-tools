@@ -8,9 +8,23 @@ eval "$($(dirname $0)/adr-config)"
 ## Otherwise lists the available commands.
 ##
 ## Uses the environment variables ADR_PAGER or PAGER (in that order) to
-## specify the command to be used to display the help text.  The default
-## pager is: more.
+## specify the command to be used to display the help text.  If neither is set,
+## more, less, or cat is used, in that order.
 
-pager="${ADR_PAGER:-${PAGER:-more}}"
+if [ -n "$ADR_PAGER" ]
+then
+    pager="$ADR_PAGER"
+elif [ -n "$PAGER" ]
+then
+    pager="$PAGER"
+elif command -v more >/dev/null 2>&1
+then
+    pager=more
+elif command -v less >/dev/null 2>&1
+then
+    pager=less
+else
+    pager=cat
+fi
 
 ("$adr_bin_dir/_adr_help" "$@") | $pager
