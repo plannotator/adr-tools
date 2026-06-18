@@ -1,0 +1,2 @@
+ADR_PAGER=cat adr help new | grep 'file "templates/template.md"'
+If the ADR directory contains a file "templates/template.md", this is used as
